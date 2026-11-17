@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reservas</title>
+  <meta name="description" content="Marque e cancele horários de sala. Sobreposição na mesma sala devolve conflito.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600&family=IBM+Plex+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/app.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container bar">
+      <a class="wordmark" href="/" aria-label="Reservas, início">Reservas</a>
+      <form class="day-form" id="day-form">
+        <label for="day">Dia</label>
+        <input id="day" name="day" type="date" required>
+      </form>
+    </div>
+  </header>
+  <main class="container screen">
+    <h1 id="day-title">Reservas do dia</h1>
+    <p id="day-line">Das 8h às 20h. Horários encostados cabem; sobreposição devolve conflito.</p>
+    <section aria-labelledby="ruler-label">
+      <h2 id="ruler-label" class="visually-hidden">Régua do dia</h2>
+      <div id="ruler" aria-busy="true"></div>
+    </section>
+    <section class="panel" aria-labelledby="book-label">
+      <h2 id="book-label">Marcar</h2>
+      <form id="book-form">
+        <div class="field">
+          <label for="resource">Sala</label>
+          <select id="resource" name="resourceId" required></select>
+        </div>
+        <div class="field">
+          <label for="title">Título</label>
+          <input id="title" name="title" type="text" maxlength="80" autocomplete="off" required>
+        </div>
+        <div class="field">
+          <label for="starts">Começa</label>
+          <input id="starts" name="startsAt" type="datetime-local" required>
+        </div>
+        <div class="field">
+          <label for="ends">Termina</label>
+          <input id="ends" name="endsAt" type="datetime-local" required>
+        </div>
+        <button class="key key-primary" type="submit">Marcar</button>
+      </form>
+      <p id="form-note" class="note" aria-live="polite"></p>
+    </section>
+    <section aria-labelledby="list-label">
+      <h2 id="list-label">Neste dia</h2>
+      <div id="list" aria-busy="true"></div>
+    </section>
+    <noscript>
+      <p>Esta tela precisa de JavaScript para carregar as salas e gravar reservas.</p>
+    </noscript>
+  </main>
+  <script src="/app.js" type="module"></script>
+</body>
+</html>

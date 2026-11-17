@@ -1,0 +1,16 @@
+{
+  "name": "reservas",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.18"
+  },
+  "scripts": {
+    "start": "node src/server.ts",
+    "dev": "node --watch src/server.ts",
+    "test": "node --test test/domain.test.ts test/api.test.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1"
+  }
+}
